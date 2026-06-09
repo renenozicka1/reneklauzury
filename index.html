@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klauzury 2026 — René Nožička</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Vlastní kruhový kurzor -->
+<div id="cursor"></div>
+
+<!-- ====================== PAGE: MAIN ====================== -->
+<section class="page is-active" id="page-main" data-bg="assets/img/pg_main.jpg">
+  <!-- čtverec vlevo nahoře -> projekty -->
+  <button class="hotspot square-btn" data-go="page-projects1"
+          style="left:8.0%; top:8.6%; width:7.2%; height:10.5%;"
+          aria-label="Otevřít projekty"></button>
+
+  <!-- plus vpravo nahoře -> přehrávač -->
+  <button class="hotspot plus-btn" data-go="page-player"
+          style="left:85.5%; top:7.5%; width:6.5%; height:11.5%;"
+          aria-label="Otevřít přehrávač"></button>
+
+  <!-- levá pomlčka -> přechod (na main2) -->
+  <button class="hotspot dash-btn" data-swipe="page-main2"
+          style="left:8.0%; top:50.5%; width:7.5%; height:4.5%;"
+          aria-label="Předchozí"></button>
+
+  <!-- pravá pomlčka -> přechod (na main2) -->
+  <button class="hotspot dash-btn" data-swipe="page-main2"
+          style="left:85.0%; top:50.5%; width:7.5%; height:4.5%;"
+          aria-label="Další"></button>
+</section>
+
+<!-- ====================== PAGE: PROJECTS 1 (z mainu) ====================== -->
+<section class="page" id="page-projects1" data-bg="assets/img/pg_projects1.jpg">
+  <!-- čtverec zpět na main -->
+  <button class="hotspot square-btn" data-go="page-main"
+          style="left:6.5%; top:9.5%; width:7.5%; height:10.5%;"
+          aria-label="Zpět"></button>
+</section>
+
+<!-- ====================== PAGE: MAIN 2 (vlevo nahoře v návrhu) ====================== -->
+<section class="page" id="page-main2" data-bg="assets/img/pg_main2.jpg">
+  <!-- čtverec vlevo nahoře -> projekty2 -->
+  <button class="hotspot square-btn" data-go="page-projects2"
+          style="left:8.0%; top:11.5%; width:6.8%; height:11.5%;"
+          aria-label="Otevřít projekty"></button>
+
+  <!-- plus vpravo nahoře -> přehrávač -->
+  <button class="hotspot plus-btn" data-go="page-player"
+          style="left:85.5%; top:11.0%; width:6.5%; height:12.0%;"
+          aria-label="Otevřít přehrávač"></button>
+
+  <!-- pomlčky -> zpět na main -->
+  <button class="hotspot dash-btn" data-swipe="page-main"
+          style="left:8.0%; top:51.0%; width:7.5%; height:4.5%;"
+          aria-label="Předchozí"></button>
+  <button class="hotspot dash-btn" data-swipe="page-main"
+          style="left:84.5%; top:51.0%; width:7.5%; height:4.5%;"
+          aria-label="Další"></button>
+</section>
+
+<!-- ====================== PAGE: PROJECTS 2 (z main2) ====================== -->
+<section class="page" id="page-projects2" data-bg="assets/img/pg_projects2.jpg">
+  <button class="hotspot square-btn" data-go="page-main2"
+          style="left:6.5%; top:13.0%; width:7.0%; height:11.5%;"
+          aria-label="Zpět"></button>
+</section>
+
+<!-- ====================== PAGE: PLAYER ====================== -->
+<section class="page" id="page-player" data-bg="assets/img/pg_player.jpg">
+  <!-- zpět -->
+  <button class="hotspot back-corner" data-go="page-main"
+          style="left:4%; top:6%; width:6%; height:9%;"
+          aria-label="Zpět"></button>
+
+  <div class="player-wrap">
+    <img class="player-skin" src="assets/img/player.png" alt="Přehrávač">
+    <!-- play/pause hotspot přesně nad tlačítkem play v komponentě -->
+    <button class="hotspot play-hotspot" id="playToggle" aria-label="Přehrát / pozastavit"></button>
+    <!-- klikací lišta pro převíjení -->
+    <button class="hotspot seek-hotspot" id="seekBar" aria-label="Převíjení"></button>
+    <!-- progress overlay (vizuálně decentní, nemění skin) -->
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="time-label" id="timeLabel">0:00</div>
+  </div>
+
+  <audio id="audio" src="assets/audio/zkouska_verze3.mp3" preload="metadata"></audio>
+</section>
+
+<!-- přechodový overlay -->
+<div id="fade"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
